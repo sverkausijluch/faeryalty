@@ -1,0 +1,6 @@
+./djreact/media
+./db.sqlite3
+./djreact/frontend/node_modules
+./djreact/djreact/settings.py
+venv
+*.log
