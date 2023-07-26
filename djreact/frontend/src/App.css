@@ -301,6 +301,7 @@ ul {
 	font-size: 1.1em;
 	width: 80%;
 	margin: 0;
+	padding-top: 60px;
 }
 .mail-content {
 	min-height: 100vh;
@@ -448,5 +449,6 @@ ul {
 	}
 	.about-content .about-info .text p {
 		width: 100%;
+		padding-top: 30px;
 	}
 }

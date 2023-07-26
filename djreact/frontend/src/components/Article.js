@@ -61,7 +61,7 @@ function Article() {
 										<div className="copy-block">
 											<div className="link-btn" onClick={copyLink}>
 												<i className="el-icon-message"></i>поделиться
-												<input type="hidden" value={'faeryalty.ru/'+article.id} id="article_link"/>
+												<input className="hide" value={'faeryalty.ru/'+article.id} id="article_link"/>
 											</div>
 											<span className="copy-result hide" id="copy_result">
 												<img src="../../static/frontend/success.gif"/>
