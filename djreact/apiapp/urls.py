@@ -7,4 +7,5 @@ urlpatterns = [
     path('article-retrieve/<int:pk>', ArticleView.as_view({'get': 'retrieve'})),
     path('create-comment', CommentView.as_view({'post': 'create'})),
     path('get-cats', CategoryView.as_view({'get': 'list'})),
+    path('send-mail', MailView.as_view({'post': 'create'})),
 ]

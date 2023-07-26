@@ -1,5 +1,5 @@
-from .models import Article, Comment, Category
-from .serializers import ArticleSerializer, ArticleCreateSerializer, CommentSerializer, CategorySerializer
+from .models import Article, Comment, Category, Mail
+from .serializers import ArticleSerializer, ArticleCreateSerializer, CommentSerializer, CategorySerializer, MailSerializer
 from rest_framework.response import Response
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
@@ -50,3 +50,15 @@ class CommentView(viewsets.ViewSet):
         if serializer.is_valid(raise_exception=True):
             serializer.save(article=article)
         return Response(serializer.data)
+
+class MailView(viewsets.ViewSet):
+    queryset = Mail.objects.all()
+    serializer_class = MailSerializer
+
+    def create(self, request):
+        data = request.data
+        serializer = MailSerializer(data=data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response('Отправлено!')
+

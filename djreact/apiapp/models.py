@@ -1,5 +1,6 @@
 from django.db import models
 from PIL import Image
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
@@ -9,8 +10,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=120)
-    description = models.CharField(max_length=500, default='')
-    text = models.TextField(max_length=10000)
+    text = CKEditor5Field(max_length=10000, verbose_name='Текст', config_name='extends')
     created_at = models.DateTimeField(auto_now_add=True)
     cover = models.ImageField(upload_to='covers', blank=True)
     category = models.ManyToManyField(Category)
@@ -33,3 +33,12 @@ class Comment(models.Model):
     author_name = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comment')
+
+class Mail(models.Model):
+    text = models.TextField(max_length=5000)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
