@@ -43,7 +43,7 @@ export default function CommentForm(props) {
                     <input value={name} onChange={updateName} placeholder="Имя" name="author_name"/>
             </div>
 				<div className="comment-textarea">
-					<textarea className="textarea" name="text" value={text} onChange={updateText}>Напишите здесь что-нибудь</textarea>
+					<textarea className="textarea" name="text" value={text} onChange={updateText}></textarea>
 				</div>
                 <button type="submit" className="super-btn">
                     Отправить
