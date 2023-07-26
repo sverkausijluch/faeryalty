@@ -92,7 +92,7 @@ h1 {
 .note-list li .created-at {
 	color: #888;
 	font-size: .95em;
-	width: 10%;
+	width: 14%;
 	display: block;
 }
 .note-list li a {
@@ -423,7 +423,7 @@ h1 {
 	}
 
 	.note-list li .created-at {
-		width: 30%;
+		width: 40%;
 	}
 
 	.note-list li .created-at a {

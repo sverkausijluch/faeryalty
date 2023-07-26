@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
 					{this.state.articles.map((article, index) => {
 						return (
 							<li key={index}>
-								<span className="created-at">12.05.2023</span>
+								<span className="created-at">{article.created_at}</span>
 								<Link to={"/" + article.id}>{article.title}</Link>
 							</li>
 						)
