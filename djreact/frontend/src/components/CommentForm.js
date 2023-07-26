@@ -42,9 +42,6 @@ export default function CommentForm(props) {
             <div className="inputWrapper">
                     <input value={name} onChange={updateName} placeholder="Имя" name="author_name"/>
             </div>
-            <div className="inputWrapper">
-                    <input  value={name} onChange={updateName} placeholder="email" name="email"/>
-            </div>
 				<div className="comment-textarea">
 					<textarea className="textarea" name="text" value={text} onChange={updateText}>Напишите здесь что-нибудь</textarea>
 				</div>
