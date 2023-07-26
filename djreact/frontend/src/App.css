@@ -318,6 +318,10 @@ ul {
 .mail-form {
 	margin: 50px 0;
 }
+.article-comments .errors-block {
+    margin-left: 0;
+    font-size: .85em;
+}
 .errors-block {
     margin-left: 15%;
     margin-top: 10px;
