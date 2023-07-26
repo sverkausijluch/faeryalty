@@ -7,6 +7,7 @@ import {Link} from "react-router-dom"
 import MediaQuery from "react-responsive"
 import CiteHeader from "./CiteHeader"
 import parse from "html-react-parser"
+import "../../static/frontend/success.gif"
 
 function Article() {
 	const {article_id} = useParams()
@@ -63,7 +64,7 @@ function Article() {
 												<input type="hidden" value={'faeryalty.ru/'+article.id} id="article_link"/>
 											</div>
 											<span className="copy-result hide" id="copy_result">
-												<img src="http://www.lenagold.ru/fon/clipart/r/raku/rakush15.gif"/>
+												<img src="../../static/frontend/success.gif"/>
 												Ссылка скопирована!</span>
 										</div>
 										<div className="article-text">
