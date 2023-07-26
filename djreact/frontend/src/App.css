@@ -119,6 +119,7 @@ h1 {
     background-color: #fff;
     border-color: #ccc;
 	margin-top: 5px;
+	height: 36px;
 }
 .link-btn:hover {
 	color: #333;
@@ -129,6 +130,22 @@ h1 {
 	font-size: 1.5em;
 	margin-right: 8px;
 	vertical-align: middle;
+}
+.copy-result {
+	color: #888;
+	font-size: .85em;
+	margin: 15px 0 0 15px;
+	display: block;
+	transition: .5s;
+}
+.copy-result img {
+	height: 21px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+.copy-block {
+	display: flex;
+	height: 60px;
 }
 .article-header {
 	background: rgb(255,221,225);

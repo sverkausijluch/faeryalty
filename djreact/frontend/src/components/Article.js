@@ -22,6 +22,14 @@ function Article() {
 		}, [])
 	}
 	useMountEffect()
+	const copyLink = () => {
+		let input = document.getElementById('article_link')
+		input.select()
+		document.execCommand("copy")
+		let copy_result_block = document.getElementById('copy_result')
+		copy_result_block.classList.remove('hide')
+		setTimeout(()=>copy_result_block.classList.add('hide'), 1000);
+	}
 	return (
 		<div className="main-container">
 			<MediaQuery maxWidth={800}>
@@ -46,8 +54,14 @@ function Article() {
 									<h3>{article.title}</h3>
 								</div>
 								<div className="article-content">
-										<div className="link-btn">
-											<i className="el-icon-message"></i>поделиться
+										<div className="copy-block">
+											<div className="link-btn" onClick={copyLink}>
+												<i className="el-icon-message"></i>поделиться
+												<input type="hidden" value={'faeryalty.ru/'+article.id} id="article_link"/>
+											</div>
+											<span className="copy-result hide" id="copy_result">
+												<img src="http://www.lenagold.ru/fon/clipart/r/raku/rakush15.gif"/>
+												Ссылка скопирована!</span>
 										</div>
 										<div className="article-text">
 											{article.text}
