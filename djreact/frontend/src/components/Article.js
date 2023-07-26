@@ -4,12 +4,14 @@ import axios from "axios"
 import MainMenu from "./MainMenu"
 import CommentsBlock from "./CommentsBlock"
 import {Link} from "react-router-dom"
-import MediaQuery from "react-responsive";
-import CiteHeader from "./CiteHeader";
+import MediaQuery from "react-responsive"
+import CiteHeader from "./CiteHeader"
+import parse from "html-react-parser"
 
 function Article() {
 	const {article_id} = useParams()
 	const [article, setArticle] = useState({comment: [], category: []})
+	const [text, setText] = useState('')
 	const useMountEffect = () => {
 		useEffect(() => {
 			let get_article = axios.get(window.location.origin + '/api/article-retrieve/' + article_id).catch(function (error) {
@@ -18,6 +20,7 @@ function Article() {
 			get_article.then(res => {
 				let article = res.data
 				setArticle(article)
+				setText(article.text)
 			})
 		}, [])
 	}
@@ -64,7 +67,7 @@ function Article() {
 												Ссылка скопирована!</span>
 										</div>
 										<div className="article-text">
-											{article.text}
+											{parse(text)}
 										</div>
 										<span className="created-at">{article.created_at}</span>
 										<ul className="tag-list">
