@@ -21,6 +21,9 @@ body {
 .hide {
 	display: none!important;
 }
+.noopacity {
+	opacity: 0!important;
+}
 ul {
 	list-style: none;
 	padding: 0;
@@ -146,6 +149,7 @@ ul {
 .copy-block {
 	display: flex;
 	height: 60px;
+	overflow: hidden;
 }
 .article-header {
 	background: rgb(255,221,225);
@@ -313,6 +317,15 @@ ul {
 }
 .mail-form {
 	margin: 50px 0;
+}
+.errors-block {
+    margin-left: 15%;
+    margin-top: 10px;
+    font-size: .9em;
+}
+.errors-block p {
+    margin: 5px 0;
+    color: #000;
 }
 .mail-form h3 {
 	margin: 0;
