@@ -14,8 +14,8 @@ class AboutPage extends React.Component {
 			<div className="main-container">
 				<MediaQuery maxWidth={800}>
 					<CiteHeader page="about"/>
-    			</MediaQuery>
-    		    <MediaQuery minWidth={801}>
+				</MediaQuery>
+				<MediaQuery minWidth={801}>
 					<MainMenu page="about"/>
 				</MediaQuery>
 				<div className="col-2">
@@ -23,10 +23,13 @@ class AboutPage extends React.Component {
 						<h2>Приве-е-е-ет!</h2>
 						<h2>Меня зовут Катя и я...</h2>
 						<div className="about-info">
-							<img src="../../static/frontend/фото.jpg" />
+							<img src="../../static/frontend/фото.jpg"/>
 							<div className="text">
 								<p>
-									пам пам пам
+									Привет, я Катя! На этом сайте ты можешь познакомится со мной поближе. 😊 Здесь я
+									рассказываю о своём творчестве, моментах и вещах что трогают мою душу. ✨
+									Размышлениях о жизни, и не только.
+									Рада приветствовать в моем коралевстве Фьюралти ❤️
 								</p>
 							</div>
 						</div>
