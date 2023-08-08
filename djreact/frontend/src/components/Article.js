@@ -8,6 +8,7 @@ import MediaQuery from "react-responsive"
 import CiteHeader from "./CiteHeader"
 import parse from "html-react-parser"
 import "../../static/frontend/success.gif"
+import SuperArticles from "./SuperArticles"
 
 function Article() {
 	const {article_id} = useParams()
@@ -23,7 +24,8 @@ function Article() {
 				setArticle(article)
 				setText(article.text)
 			})
-		}, [])
+			window.scrollTo(0,0)
+		}, [article_id])
 	}
 	useMountEffect()
 	const copyLink = () => {
@@ -74,12 +76,11 @@ function Article() {
 										<ul className="tag-list">
 											{article.category.map((cat, i) => {
 												return (
-												<div className="comment" key={i}>
 													<li><Link to={{pathname: "../all-notes", cat_id: cat.id}}>#{cat.name}</Link></li>
-												</div>
 												)
 											})}
 										</ul>
+										<SuperArticles/>
 										<CommentsBlock comments={article.comment} article_id={article.id} />
 								</div>
 							</>

@@ -6,28 +6,28 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 
 const schema = yup.object().shape({
-    name: yup
+    author_name: yup
         .string()
         .max(50, 'Введите имя покороче')
         .required("Заполните поле Имя"),
     text: yup
         .string()
+        .required("Введите текст сообщения")
         .min(5, 'Текст слишком короткий')
-        .max(1000, 'Текст великоват, сократите его до 1000 символов')
-        .required("Введите текст сообщения"),
+        .max(1000, 'Текст великоват, сократите его до 1000 символов'),
 })
 
 export default function CommentForm(props) {
     const [result, setResult] = useState('')
 
     const {register, handleSubmit, formState: {errors},} = useForm({
-        defaultValues: {name: '', text: ''},
+        defaultValues: {author_name: '', text: ''},
         mode: "onBlur",
         resolver: yupResolver(schema),
     })
 
     const onSubmit = (data) => {
-            data.append('article_id', props.article_id)
+            data.article_id = props.article_id
             $.ajax({
                 type: 'post',
                 url: '../api/create-comment',
@@ -48,17 +48,17 @@ export default function CommentForm(props) {
             }
             <CSRFToken/>
             <div className="inputWrapper">
-                    <input {...register("name")}/>
+                    <input {...register("author_name")} placeholder="Имя"/>
             </div>
 				<div className="comment-textarea">
-					<textarea {...register("text")}></textarea>
+					<textarea {...register("text")} placeholder="Текст сообщения"></textarea>
 				</div>
                 <button type="submit" className="super-btn">
                     Отправить
                 </button>
 
             <div className="errors-block">
-                <p>{errors.name?.message}</p>
+                <p>{errors.author_name?.message}</p>
                 <p>{errors.text?.message}</p>
             </div>
         </form>

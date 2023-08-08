@@ -25,7 +25,6 @@ class ArticlesListPage extends React.Component {
 		})
 		this.setArticles()
 	}
-
 	selectCat = (e) => {
 		document.querySelectorAll('.active').forEach(el => el.classList.remove('active'))
 		e.target.classList.add('active')
