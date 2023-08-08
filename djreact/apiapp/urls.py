@@ -5,6 +5,7 @@ urlpatterns = [
     path('article-create', ArticleView.as_view({'post': 'create'})),
     path('article-list/<int:cat_id>', ArticleView.as_view({'get': 'list'})),
     path('article-retrieve/<int:pk>', ArticleView.as_view({'get': 'retrieve'})),
+    path('super-articles-retrieve', SuperArticleView.as_view({'get': 'list'})),
     path('create-comment', CommentView.as_view({'post': 'create'})),
     path('get-cats', CategoryView.as_view({'get': 'list'})),
     path('send-mail', MailView.as_view({'post': 'create'})),

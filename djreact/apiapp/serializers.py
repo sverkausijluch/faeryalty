@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Article, Comment, Category, Mail
+from .models import Article, Comment, Category, Mail, SuperArticle
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,4 +27,10 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Article
         fields = ('id', 'title', 'text', 'created_at', 'comment', 'cover', 'category')
+
+class SuperArticleSerializer(serializers.HyperlinkedModelSerializer):
+    article = ArticleSerializer(many=False, read_only=True)
+    class Meta:
+        model = SuperArticle
+        fields = ('id', 'article')
 

@@ -1,5 +1,5 @@
-from .models import Article, Comment, Category, Mail
-from .serializers import ArticleSerializer, ArticleCreateSerializer, CommentSerializer, CategorySerializer, MailSerializer
+from .models import Article, Comment, Category, Mail, SuperArticle
+from .serializers import ArticleSerializer, ArticleCreateSerializer, CommentSerializer, CategorySerializer, MailSerializer, SuperArticleSerializer
 from rest_framework.response import Response
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
@@ -26,6 +26,15 @@ class ArticleView(viewsets.ViewSet):
         queryset = Article.objects.all()
         article = get_object_or_404(queryset, pk=pk)
         serializer = ArticleSerializer(article, many=False)
+        return Response(serializer.data)
+
+class SuperArticleView(viewsets.ViewSet):
+    queryset = SuperArticle.objects.all()
+    serializer_class = SuperArticleSerializer
+
+    def list(self, request):
+        queryset = SuperArticle.objects.all()
+        serializer = SuperArticleSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class CategoryView(viewsets.ViewSet):

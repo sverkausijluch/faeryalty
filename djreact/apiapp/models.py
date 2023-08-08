@@ -28,14 +28,17 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+class SuperArticle(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
 class Comment(models.Model):
-    text = models.TextField(max_length=10000)
+    text = models.TextField(max_length=1000)
     author_name = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comment')
 
 class Mail(models.Model):
-    text = models.TextField(max_length=5000)
+    text = models.TextField(max_length=1000)
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
