@@ -25,13 +25,16 @@ class SuperArticles extends React.Component {
                 <header><h3>Что еще посмотреть?</h3></header>
                 <ul>
 					{this.state.articles.map((note, index) => {
-						note && index === undefined ? (
-							""
-						  ) : (
-							<li key={index}>
-								<Link to={"../" + note.article.id}><i className="el-icon-caret-right"></i> {note.article.title}</Link>
-							</li>
-						)
+						if(note && index !== undefined) {
+							return (
+								<li key={index}>
+									<Link to={"../" + note.article.id}><i
+										className="el-icon-caret-right"></i> {note.article.title}</Link>
+								</li>
+							)
+						} else {
+							return ""
+						}
 					})}
                 </ul>
 			</article>
